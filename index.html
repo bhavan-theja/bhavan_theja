@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
 <meta name="theme-color" content="#12091f">
 
-<title>A Little Message 💌</title>
+<title>For Lalitha 💌</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
 
 * {
@@ -18,24 +25,33 @@
 
 :root {
     --pink: #ff5c8a;
-    --light-pink: #ff8eae;
-    --purple: #6f4cff;
     --dark: #12091f;
-    --card: rgba(255,255,255,0.10);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
     min-height: 100vh;
     overflow: hidden;
+
     font-family: "DM Sans", sans-serif;
+
     background:
         radial-gradient(circle at 20% 20%, #47215d 0, transparent 30%),
         radial-gradient(circle at 80% 70%, #281f68 0, transparent 30%),
         linear-gradient(145deg, #100718, #220c32, #10102d);
+
     color: white;
 }
 
-/* BACKGROUND */
+
+/* =========================================
+   BACKGROUND
+========================================= */
 
 .background {
     position: fixed;
@@ -70,24 +86,37 @@ body {
 }
 
 @keyframes orbMove {
+
     to {
-        transform: translate(70px, 80px) scale(1.2);
+        transform:
+            translate(70px, 80px)
+            scale(1.2);
     }
+
 }
 
-/* PARTICLES */
+
+/* =========================================
+   PARTICLES
+========================================= */
 
 .particle {
     position: absolute;
+
     width: 4px;
     height: 4px;
+
     background: white;
+
     border-radius: 50%;
+
     opacity: .4;
+
     animation: floatParticle linear infinite;
 }
 
 @keyframes floatParticle {
+
     from {
         transform: translateY(110vh);
     }
@@ -95,107 +124,149 @@ body {
     to {
         transform: translateY(-20vh);
     }
+
 }
 
-/* APP */
+
+/* =========================================
+   APP
+========================================= */
 
 .app {
     position: relative;
+
     width: 100%;
     height: 100vh;
+
     max-width: 480px;
+
     margin: auto;
 }
 
-/* SCREEN */
+
+/* =========================================
+   SCREENS
+========================================= */
 
 .screen {
     position: absolute;
+
     inset: 0;
+
     padding: 25px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     opacity: 0;
+
     visibility: hidden;
-    transform: translateX(40px) scale(.96);
-    transition: .7s cubic-bezier(.22,.8,.25,1);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    transform:
+        translateX(40px)
+        scale(.96);
+
+    transition:
+        .7s cubic-bezier(.22,.8,.25,1);
 }
 
 .screen.active {
     opacity: 1;
+
     visibility: visible;
-    transform: translateX(0) scale(1);
+
+    pointer-events: auto;
+
+    z-index: 10;
+
+    transform:
+        translateX(0)
+        scale(1);
 }
 
-/* CARD */
+
+/* =========================================
+   CARD
+========================================= */
 
 .card {
     width: 100%;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
     padding: 30px 22px;
+
     border-radius: 30px;
-    background: rgba(255,255,255,.09);
-    border: 1px solid rgba(255,255,255,.17);
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid rgba(255,255,255,.17);
+
     backdrop-filter: blur(18px);
+
     -webkit-backdrop-filter: blur(18px);
-    box-shadow: 0 25px 70px rgba(0,0,0,.35);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35);
+
     text-align: center;
+
+    scrollbar-width: none;
 }
 
+.card::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
 h1 {
-    font-family: "Playfair Display", serif;
+    font-family:
+        "Playfair Display",
+        serif;
+
     font-size: 36px;
-    line-height: 1.15;
+
+    line-height: 1.2;
 }
 
 h2 {
-    font-family: "Playfair Display", serif;
+    font-family:
+        "Playfair Display",
+        serif;
+
     font-size: 30px;
+
+    line-height: 1.25;
 }
 
 .subtitle {
-    color: rgba(255,255,255,.68);
+    color:
+        rgba(255,255,255,.68);
+
     margin-top: 12px;
+
     line-height: 1.6;
 }
 
-/* INPUT */
 
-.input-group {
-    text-align: left;
-    margin-top: 22px;
-}
-
-label {
-    font-size: 14px;
-    color: rgba(255,255,255,.7);
-}
-
-input,
-textarea {
-    width: 100%;
-    margin-top: 7px;
-    padding: 15px;
-    border: 1px solid rgba(255,255,255,.18);
-    background: rgba(255,255,255,.08);
-    border-radius: 15px;
-    outline: none;
-    color: white;
-    font-family: inherit;
-    font-size: 16px;
-}
-
-input:focus,
-textarea:focus {
-    border-color: var(--pink);
-}
-
-textarea {
-    height: 100px;
-    resize: none;
-}
-
-/* BUTTON */
+/* =========================================
+   BUTTONS
+========================================= */
 
 button {
     border: 0;
@@ -205,14 +276,30 @@ button {
 
 .main-btn {
     width: 100%;
+
     padding: 16px;
+
     margin-top: 22px;
+
     border-radius: 50px;
+
     font-size: 16px;
+
     font-weight: 700;
+
     color: white;
-    background: linear-gradient(135deg, var(--pink), #ff3c70);
-    box-shadow: 0 12px 30px rgba(255,92,138,.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            #ff3c70
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,92,138,.35);
+
     transition: .25s;
 }
 
@@ -220,521 +307,1114 @@ button {
     transform: scale(.95);
 }
 
-/* ENVELOPE */
+
+/* =========================================
+   MUSIC BUTTON
+========================================= */
+
+.music-button {
+    position: fixed;
+
+    top: 18px;
+    right: 18px;
+
+    width: 45px;
+    height: 45px;
+
+    z-index: 200;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 20px;
+
+    background:
+        rgba(255,255,255,.15);
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.2);
+}
+
+.music-button.playing {
+    animation: musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse {
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* =========================================
+   ENVELOPE
+========================================= */
 
 .envelope-wrap {
     margin: 35px auto;
+
     width: 190px;
     height: 135px;
+
     position: relative;
+
     cursor: pointer;
-    animation: envelopeFloat 2.5s infinite ease-in-out;
+
+    animation:
+        envelopeFloat 2.5s infinite ease-in-out;
 }
 
 @keyframes envelopeFloat {
+
     50% {
         transform: translateY(-12px);
     }
+
 }
 
 .envelope {
     position: absolute;
+
     inset: 0;
-    background: linear-gradient(145deg, #ff8bab, #ff537f);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff8bab,
+            #ff537f
+        );
+
     border-radius: 10px;
-    box-shadow: 0 20px 40px rgba(255,80,130,.35);
+
+    box-shadow:
+        0 20px 40px
+        rgba(255,80,130,.35);
 }
 
 .envelope::before {
     content: "";
+
     position: absolute;
+
     inset: 0;
-    clip-path: polygon(0 0,50% 60%,100% 0);
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 60%,
+            100% 0
+        );
+
     background: #ffb0c5;
 }
 
 .envelope::after {
     content: "";
+
     position: absolute;
+
     inset: 0;
-    clip-path: polygon(0 100%,50% 40%,100% 100%);
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 40%,
+            100% 100%
+        );
+
     background: #ff7197;
 }
 
 .envelope-heart {
     position: absolute;
+
     z-index: 3;
+
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-25%);
+
+    transform:
+        translate(-50%,-25%);
+
     font-size: 38px;
 }
 
-/* BEATING HEART */
 
-.big-heart {
-    font-size: 100px;
-    margin: 25px 0;
-    cursor: pointer;
-    animation: heartbeat 1.1s infinite;
-    filter: drop-shadow(0 10px 25px rgba(255,50,100,.5));
+/* =========================================
+   IMAGES
+========================================= */
+
+.memory-image {
+    display: block;
+
+    width: 100%;
+
+    max-width: 330px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    margin: 0 auto 20px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.35);
 }
 
-@keyframes heartbeat {
-    0%,100% { transform: scale(1); }
-    15% { transform: scale(1.16); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.12); }
+.page-two-image {
+    max-height: 35vh;
 }
 
-/* TYPING */
+.long-memory-image {
+    max-height: 58vh;
+}
+
+.spiderman-image {
+    max-height: 38vh;
+}
+
+
+/* =========================================
+   TYPEWRITER
+========================================= */
 
 .typing {
     min-height: 90px;
-    font-family: "Playfair Display", serif;
-    font-size: 25px;
+
+    margin-top: 20px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 23px;
+
     line-height: 1.5;
 }
 
-/* BROKEN HEART GAME */
 
-.broken-heart {
-    font-size: 100px;
-    margin: 25px;
-    cursor: pointer;
-    transition: .4s;
-}
-
-.progress-container {
-    height: 12px;
-    background: rgba(255,255,255,.1);
-    border-radius: 30px;
-    overflow: hidden;
-}
-
-.progress {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg,#ff8bad,#ff3e72);
-    border-radius: 30px;
-    transition: .4s;
-}
-
-.progress-text {
-    margin-top: 12px;
-    font-weight: bold;
-}
-
-/* LETTER */
+/* =========================================
+   LETTER
+========================================= */
 
 .letter {
     margin-top: 20px;
+
     padding: 25px;
+
     border-radius: 20px;
+
     background: #fff7f2;
+
     color: #4c3540;
+
     text-align: left;
+
     line-height: 1.8;
-    box-shadow: 0 20px 50px rgba(0,0,0,.2);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.2);
+
     transform: rotate(-1deg);
 }
 
-/* CHOICE BUTTONS */
 
-.choices {
+/* =========================================
+   MILO AND WHISKEY
+========================================= */
+
+.pets-container {
     display: flex;
-    gap: 12px;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    margin: 25px 0;
+}
+
+.pet {
+    text-align: center;
+
+    animation:
+        petFloat 2s infinite ease-in-out;
+}
+
+.pet:nth-child(2) {
+    animation-delay: .4s;
+}
+
+.pet-emoji {
+    font-size: 75px;
+}
+
+.small-dog {
+    font-size: 55px;
+}
+
+.pet-name {
+    margin-top: 8px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+@keyframes petFloat {
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+.please-text {
+    margin-top: 20px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 22px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   SECOND CHANCE PAGE
+========================================= */
+
+.final-message {
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-top: 22px;
+}
+
+.final-signature {
+    margin-top: 25px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 22px;
+}
+
+
+/* =========================================
+   MOVE FORWARD PAGE
+========================================= */
+
+.move-forward-card {
+    padding: 45px 25px 35px;
+}
+
+.rose-icon {
+    font-size: 75px;
+
+    margin-bottom: 25px;
+
+    animation:
+        roseFloat 2.2s infinite ease-in-out;
+}
+
+@keyframes roseFloat {
+
+    50% {
+        transform:
+            translateY(-10px)
+            scale(1.05);
+    }
+
+}
+
+.move-forward-title {
+    font-size: 35px;
+
+    line-height: 1.25;
+
+    margin-bottom: 25px;
+}
+
+.move-forward-message {
+    color:
+        rgba(255,255,255,.72);
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    margin: 0 auto 30px;
+
+    max-width: 360px;
+}
+
+.choice-buttons {
+    display: flex;
+
+    gap: 15px;
+
     margin-top: 25px;
 }
 
-.choice {
+.choice-btn {
     flex: 1;
-    padding: 15px;
+
+    min-height: 58px;
+
+    padding: 14px 10px;
+
     border-radius: 50px;
+
+    color: white;
+
+    font-size: 15px;
+
     font-weight: 700;
+
+    transition: .25s;
 }
 
-.yes {
-    color: white;
-    background: linear-gradient(135deg,#ff5c8a,#ff3d70);
+.choice-btn:active {
+    transform: scale(.95);
 }
 
-.maybe {
-    color: white;
-    background: rgba(255,255,255,.15);
+.okay-btn {
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            #ff3c70
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,92,138,.3);
 }
 
-/* FINAL */
+.thinking-btn {
+    background:
+        rgba(255,255,255,.16);
 
-.final-heart {
-    font-size: 110px;
-    animation: heartbeat 1s infinite;
+    border:
+        1px solid rgba(255,255,255,.1);
 }
+
+
+/* =========================================
+   END CARD
+========================================= */
+
+.end-card-image {
+    max-height: 48vh;
+
+    margin-bottom: 25px;
+}
+
+.hangova-message {
+    margin-top: 18px;
+
+    font-size: 30px;
+
+    line-height: 1.4;
+}
+
+.hangova-message span {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    font-size: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff8bab,
+            #ff3c70
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        hangovaPulse 1.8s infinite ease-in-out;
+}
+
+.end-message {
+    margin-top: 22px;
+
+    font-size: 17px;
+}
+
+@keyframes hangovaPulse {
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
 
 .confetti {
     position: fixed;
+
+    z-index: 500;
+
+    pointer-events: none;
+
     font-size: 20px;
-    animation: confettiFall 3s linear forwards;
+
+    animation:
+        confettiFall 3s linear forwards;
 }
 
 @keyframes confettiFall {
+
     from {
-        transform: translateY(-100px) rotate(0);
+        transform:
+            translateY(-100px)
+            rotate(0);
     }
 
     to {
-        transform: translateY(110vh) rotate(720deg);
+        transform:
+            translateY(110vh)
+            rotate(720deg);
     }
+
 }
 
-/* TOAST */
 
-.toast {
-    position: fixed;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: white;
-    color: #333;
-    padding: 13px 22px;
-    border-radius: 30px;
-    transition: .4s;
-    z-index: 100;
-    white-space: nowrap;
-}
-
-.toast.show {
-    transform: translateX(-50%) translateY(0);
-}
-
-.small {
-    font-size: 13px;
-    color: rgba(255,255,255,.5);
-    margin-top: 15px;
-}
+/* =========================================
+   MOBILE
+========================================= */
 
 @media(max-height: 700px) {
+
     .card {
         padding: 22px 18px;
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 29px;
     }
 
-    .big-heart,
-    .broken-heart {
-        font-size: 75px;
+    h2 {
+        font-size: 25px;
+    }
+
+    .typing {
+        font-size: 20px;
+    }
+
+    .page-two-image {
+        max-height: 29vh;
+    }
+
+    .long-memory-image {
+        max-height: 50vh;
+    }
+
+    .spiderman-image {
+        max-height: 32vh;
+    }
+
+    .move-forward-title {
+        font-size: 29px;
+    }
+
+    .move-forward-message {
+        font-size: 17px;
+    }
+
+    .rose-icon {
+        font-size: 62px;
+    }
+
+    .choice-buttons {
+        gap: 10px;
+    }
+
+    .choice-btn {
+        font-size: 14px;
+    }
+
+    .end-card-image {
+        max-height: 38vh;
+    }
+
+    .hangova-message {
+        font-size: 25px;
+    }
+
+    .hangova-message span {
+        font-size: 34px;
     }
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="background" id="background"></div>
 
-<div class="app">
+<!-- =========================================
+     BACKGROUND MUSIC
+========================================= -->
+<audio
+    id="backgroundMusic"
+    src="https://github.com/bhavan-theja/bhavan_theja/Hangova.mp3"
+    loop
+    preload="auto">
+</audio>
 
-    <!-- CREATOR SCREEN -->
 
-    <section class="screen active" id="creator">
-        <div class="card">
+<button
+    class="music-button"
+    id="musicButton"
+    onclick="toggleMusic()"
+    aria-label="Toggle music">
 
-            <div style="font-size:50px">💌</div>
+    🎵
 
-            <h1>Create a Little Message</h1>
+</button>
 
-            <p class="subtitle">
-                Some things are difficult to say.
-                Maybe this will make it a little easier.
-            </p>
 
-            <div class="input-group">
-                <label>Who are you saying sorry to?</label>
-                <input id="recipient" placeholder="Their name">
-            </div>
+<!-- =========================================
+     BACKGROUND
+========================================= -->
 
-            <div class="input-group">
-                <label>Who is this message from?</label>
-                <input id="sender" placeholder="Your name">
-            </div>
-
-            <div class="input-group">
-                <label>Your personal message</label>
-
-                <textarea id="message"
-                placeholder="Write something from your heart..."></textarea>
-            </div>
-
-            <button class="main-btn" onclick="generateLink()">
-                Create My Message 💌
-            </button>
-
-            <p class="small">
-                Your message will be stored inside the shared link.
-            </p>
-
-        </div>
-    </section>
-
-
-    <!-- OPENING -->
-
-    <section class="screen" id="opening">
-
-        <div class="card">
-
-            <p class="subtitle">A little message has arrived for</p>
-
-            <h1 id="openName"></h1>
-
-            <div class="envelope-wrap" onclick="nextScreen('heartScreen')">
-
-                <div class="envelope"></div>
-
-                <div class="envelope-heart">❤️</div>
-
-            </div>
-
-            <h2>Tap to open</h2>
-
-            <p class="subtitle">
-                Someone put their heart into this.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- HEART -->
-
-    <section class="screen" id="heartScreen">
-
-        <div class="card">
-
-            <p class="subtitle">Before you continue...</p>
-
-            <div class="big-heart" onclick="startMessage()">❤️</div>
-
-            <h2>Listen to my heart</h2>
-
-            <p class="subtitle">
-                Tap the heart.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- MESSAGE -->
-
-    <section class="screen" id="messageScreen">
-
-        <div class="card">
-
-            <div style="font-size:65px">🥺</div>
-
-            <h2>I need to tell you something...</h2>
-
-            <div class="typing" id="typingText"></div>
-
-            <button
-                id="messageNext"
-                class="main-btn"
-                style="display:none"
-                onclick="nextScreen('repairScreen')">
-
-                There's something else...
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- REPAIR HEART -->
-
-    <section class="screen" id="repairScreen">
-
-        <div class="card">
-
-            <h2>Can this heart be fixed?</h2>
-
-            <p class="subtitle">
-                Tap the heart a few times.
-            </p>
-
-            <div
-                class="broken-heart"
-                id="repairHeart"
-                onclick="repairHeart()">
-
-                💔
-
-            </div>
-
-            <div class="progress-container">
-                <div class="progress" id="progress"></div>
-            </div>
-
-            <div class="progress-text" id="progressText">
-                0% healed
-            </div>
-
-            <button
-                class="main-btn"
-                id="repairNext"
-                style="display:none"
-                onclick="nextScreen('letterScreen')">
-
-                Read my letter 💌
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- LETTER -->
-
-    <section class="screen" id="letterScreen">
-
-        <div class="card">
-
-            <h2>A letter for you</h2>
-
-            <div class="letter">
-
-                <strong>Dear <span id="letterRecipient"></span>,</strong>
-
-                <br><br>
-
-                <span id="personalMessage"></span>
-
-                <br><br>
-
-                I know a simple sorry cannot undo everything.
-
-                But I hope you know that this apology comes from my heart.
-
-                I value you more than my mistakes, more than my ego,
-                and more than the distance a misunderstanding can create.
-
-                <br><br>
-
-                <strong>
-                    — <span id="letterSender"></span> ❤️
-                </strong>
-
-            </div>
-
-            <button
-                class="main-btn"
-                onclick="nextScreen('questionScreen')">
-
-                One last thing...
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- QUESTION -->
-
-    <section class="screen" id="questionScreen">
-
-        <div class="card">
-
-            <div style="font-size:70px">🌷</div>
-
-            <h1>Can we leave this mistake behind?</h1>
-
-            <p class="subtitle">
-                Not forget it. Not pretend it never happened.
-                Just learn from it and move forward.
-            </p>
-
-            <div class="choices">
-
-                <button class="choice yes" onclick="finish()">
-                    Okay ❤️
-                </button>
-
-                <button
-                    class="choice maybe"
-                    id="maybeButton"
-                    onclick="maybeClick()">
-
-                    Still thinking 🤔
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FINAL -->
-
-    <section class="screen" id="finalScreen">
-
-        <div class="card">
-
-            <div class="final-heart">❤️</div>
-
-            <h1>Thank You</h1>
-
-            <p class="subtitle" id="finalText"></p>
-
-            <p
-                style="
-                margin-top:25px;
-                font-family:'Playfair Display',serif;
-                font-size:22px;
-                ">
-
-                Some people are worth saying sorry to.
-
-            </p>
-
-        </div>
-
-    </section>
-
+<div
+    class="background"
+    id="background">
 </div>
 
 
-<div class="toast" id="toast">
-    Link copied! 💌
+<!-- =========================================
+     APP
+========================================= -->
+
+<div class="app">
+
+
+<!-- =========================================
+     PAGE 1 - OPENING
+========================================= -->
+
+<section
+    class="screen active"
+    id="opening">
+
+    <div class="card">
+
+        <p class="subtitle">
+            A little message has arrived for
+        </p>
+
+        <h1>
+            Lalitha ❤️
+        </h1>
+
+        <div
+            class="envelope-wrap"
+            onclick="openMessage()">
+
+            <div class="envelope"></div>
+
+            <div class="envelope-heart">
+                ❤️
+            </div>
+
+        </div>
+
+        <h2>
+            Tap to open
+        </h2>
+
+        <p class="subtitle">
+            Theja put his heart into this.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PAGE 2 - COUPLE IMAGE
+========================================= -->
+
+<section
+    class="screen"
+    id="messageScreen">
+
+    <div class="card">
+
+        <img
+            src="https://github.com/bhavan-theja/bhavan_theja/couple.jpg"
+            alt="A special memory"
+            class="memory-image page-two-image"
+        >
+
+        <h2>
+            I need to tell you something...
+        </h2>
+
+        <div
+            class="typing"
+            id="typingText">
+        </div>
+
+        <button
+            id="messageNext"
+            class="main-btn"
+            style="display:none"
+            onclick="nextScreen('letterScreen')">
+
+            There's something else...
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PAGE 3 - LETTER
+========================================= -->
+
+<section
+    class="screen"
+    id="letterScreen">
+
+    <div class="card">
+
+        <h2>
+            A letter for you
+        </h2>
+
+        <div class="letter">
+
+            <strong>
+                Dear Lalitha,
+            </strong>
+
+            <br><br>
+
+            I know things may not feel right between us right now.
+
+            I may have said something, done something,
+            or failed to understand how you felt.
+
+            <br><br>
+
+            And for that, I am truly sorry.
+
+            <br><br>
+
+            I know a simple sorry cannot undo everything.
+
+            But I hope you know that this apology
+            comes genuinely from my heart.
+
+            <br><br>
+
+            I value you more than my mistakes,
+            more than my ego,
+            and more than the distance
+            a misunderstanding can create.
+
+            <br><br>
+
+            I don't expect everything to become normal immediately.
+
+            I just hope you can see that I'm genuinely sorry
+            and asking for a chance to make things right.
+
+            <br><br>
+
+            <strong>
+                — Theja ❤️
+            </strong>
+
+        </div>
+
+        <button
+            class="main-btn"
+            onclick="nextScreen('petsScreen')">
+
+            Two little friends want to say something... 👀
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PAGE 4 - MILO AND WHISKEY
+========================================= -->
+
+<section
+    class="screen"
+    id="petsScreen">
+
+    <div class="card">
+
+        <p class="subtitle">
+            Someone else wants to request you too...
+        </p>
+
+        <div class="pets-container">
+
+            <div class="pet">
+
+                <div class="pet-emoji">
+                    🐱
+                </div>
+
+                <div class="pet-name">
+                    Milo
+                </div>
+
+            </div>
+
+
+            <div class="pet">
+
+                <div class="pet-emoji small-dog">
+                    🐶
+                </div>
+
+                <div class="pet-name">
+                    Whiskey
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <h1>
+            Please, Lalitha... 🥺
+        </h1>
+
+
+        <p class="please-text">
+
+            Milo and little Whiskey have
+            one small request for you...
+
+            <br><br>
+
+            Maybe give this narcissistic idiot
+            one more chance?
+
+            <br>
+
+            🥺👉👈
+
+        </p>
+
+
+        <button
+            class="main-btn"
+            onclick="nextScreen('memoryScreen')">
+
+            There's a little more... ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PAGE 5 - MEMORIES
+========================================= -->
+
+<section
+    class="screen"
+    id="memoryScreen">
+
+    <div class="card">
+
+        <p class="subtitle">
+            Before the last message...
+        </p>
+
+        <h2>
+            Some memories will always be special ❤️
+        </h2>
+
+        <img
+            src="https://github.com/bhavan-theja/bhavan_theja/memories.jpg"
+            alt="Our special memories"
+            class="memory-image long-memory-image"
+            style="margin-top:22px;"
+        >
+
+        <button
+            class="main-btn"
+            onclick="openFinalPage()">
+
+            One last message... 💌
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PAGE 6 - SPIDER-MAN SECOND CHANCE
+========================================= -->
+
+<section
+    class="screen"
+    id="secondChanceScreen">
+
+    <div class="card">
+
+        <img
+            src="https://github.com/bhavan-theja/bhavan_theja/spiderman.jpg"
+            alt="Spider Mine"
+            class="memory-image spiderman-image"
+        >
+
+        <h1>
+            Some people are worth giving second chances.
+        </h1>
+
+        <p class="subtitle final-message">
+
+            Maybe not because they deserve
+            to have their mistakes forgotten...
+
+            <br><br>
+
+            but because they genuinely regret them
+            and want a chance to do better.
+
+            <br><br>
+
+            <strong style="color:white;">
+
+                You don't have to decide anything now, Lalitha.
+
+            </strong>
+
+            <br><br>
+
+            Take your own time.
+
+            <br><br>
+
+            There's no pressure and no expectation.
+
+            <br><br>
+
+            Whatever you decide,
+            thank you for taking the time
+            to read this little message.
+
+        </p>
+
+        <div class="final-signature">
+            — Theja ❤️
+        </div>
+
+        <button
+            class="main-btn"
+            onclick="nextScreen('moveForwardScreen')">
+
+            One more thing... 🌷
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PAGE 7 - MOVE FORWARD
+========================================= -->
+
+<section
+    class="screen"
+    id="moveForwardScreen">
+
+    <div class="card move-forward-card">
+
+        <div class="rose-icon">
+            🌷
+        </div>
+
+        <h1 class="move-forward-title">
+            Can we leave this mistake behind?
+        </h1>
+
+        <p class="move-forward-message">
+
+            Not forget it.
+
+            <br>
+
+            Not pretend it never happened.
+
+            <br><br>
+
+            Just learn from it and move forward because we are still learning how to love.
+
+        </p>
+
+        <div class="choice-buttons">
+
+            <button
+                class="choice-btn okay-btn"
+                onclick="openEndCard()">
+
+                Okay ❤️
+
+            </button>
+
+            <button
+                class="choice-btn thinking-btn"
+                onclick="stillThinking()">
+
+                Still thinking 🤔
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PAGE 8 - FINAL HANGOVA END CARD
+========================================= -->
+
+<section
+    class="screen"
+    id="endCardScreen">
+
+    <div class="card">
+
+        <img
+            src="https://github.com/bhavan-theja/bhavan_theja/end_card.jpg"
+            alt="One last memory"
+            class="memory-image end-card-image"
+        >
+
+        <p class="subtitle">
+            And finally...
+        </p>
+
+        <h1 class="hangova-message">
+
+            I remember you even after my hangover
+
+            <br><br>
+
+            because you are my
+
+            <br>
+
+            <span>
+                HANGOVA ❤️
+            </span>
+
+        </h1>
+
+        <p class="subtitle end-message">
+            Some people are simply impossible to forget.
+        </p>
+
+        <div class="final-signature">
+            — Theja ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
 </div>
 
 
 <script>
 
-/* PARTICLES */
 
-const background = document.getElementById("background");
+/* =========================================
+   BACKGROUND PARTICLES
+========================================= */
+
+const background =
+    document.getElementById("background");
+
 
 background.innerHTML +=
-'<div class="orb orb1"></div>' +
-'<div class="orb orb2"></div>';
+    '<div class="orb orb1"></div>' +
+    '<div class="orb orb2"></div>';
+
 
 for(let i = 0; i < 35; i++) {
 
-    const particle = document.createElement("span");
+    const particle =
+        document.createElement("span");
 
-    particle.className = "particle";
+    particle.className =
+        "particle";
 
-    particle.style.left = Math.random() * 100 + "%";
+    particle.style.left =
+        Math.random() * 100 + "%";
 
     particle.style.animationDuration =
         (5 + Math.random() * 8) + "s";
@@ -749,137 +1429,167 @@ for(let i = 0; i < 35; i++) {
 }
 
 
-/* SCREEN NAVIGATION */
+/* =========================================
+   SCREEN NAVIGATION
+========================================= */
 
 function nextScreen(id) {
 
-    document.querySelectorAll(".screen").forEach(screen => {
-        screen.classList.remove("active");
-    });
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
 
-    document.getElementById(id).classList.add("active");
-}
-
-
-/* URL GENERATION */
-
-function generateLink() {
-
-    const recipient =
-        document.getElementById("recipient").value.trim();
-
-    const sender =
-        document.getElementById("sender").value.trim();
-
-    const message =
-        document.getElementById("message").value.trim();
-
-
-    if(!recipient || !sender || !message) {
-
-        alert("Please fill all three fields 💌");
-
-        return;
-    }
-
-
-    const params = new URLSearchParams();
-
-    params.set("to", recipient);
-    params.set("from", sender);
-    params.set("message", message);
-
-
-    const url =
-        window.location.origin +
-        window.location.pathname +
-        "?" +
-        params.toString();
-
-
-    navigator.clipboard.writeText(url)
-        .then(() => {
-
-            const toast = document.getElementById("toast");
-
-            toast.classList.add("show");
-
-            setTimeout(() => {
-                toast.classList.remove("show");
-            }, 2500);
+            screen.classList.remove("active");
 
         });
 
 
-    loadExperience(recipient, sender, message);
+    const next =
+        document.getElementById(id);
 
-    nextScreen("opening");
+
+    next.classList.add("active");
+
+
+    const card =
+        next.querySelector(".card");
+
+
+    if(card) {
+
+        card.scrollTop = 0;
+
+    }
 }
 
 
-/* LOAD EXPERIENCE */
+/* =========================================
+   MUSIC
+========================================= */
 
-function loadExperience(recipient, sender, message) {
+const backgroundMusic =
+    document.getElementById("backgroundMusic");
 
-    document.getElementById("openName").textContent =
-        recipient;
 
-    document.getElementById("letterRecipient").textContent =
-        recipient;
+const musicButton =
+    document.getElementById("musicButton");
 
-    document.getElementById("letterSender").textContent =
-        sender;
 
-    document.getElementById("personalMessage").textContent =
-        message;
+let musicStarted = false;
 
-    document.getElementById("finalText").textContent =
-        recipient +
-        ", this little message was made especially for you by " +
-        sender +
-        ".";
+
+function startMusic() {
+
+    if(musicStarted) {
+
+        return;
+
+    }
+
+
+    backgroundMusic.volume = 0.45;
+
+
+    backgroundMusic.play()
+
+        .then(() => {
+
+            musicStarted = true;
+
+            musicButton.textContent =
+                "🔊";
+
+            musicButton.classList.add(
+                "playing"
+            );
+
+        })
+
+        .catch(error => {
+
+            console.log(
+                "Audio playback blocked:",
+                error
+            );
+
+        });
 }
 
 
-/* LOAD URL */
+function toggleMusic() {
 
-const params = new URLSearchParams(window.location.search);
+    if(backgroundMusic.paused) {
 
-if(
-    params.has("to") &&
-    params.has("from") &&
-    params.has("message")
-) {
+        backgroundMusic.play();
 
-    const recipient = params.get("to");
+        musicButton.textContent =
+            "🔊";
 
-    const sender = params.get("from");
+        musicButton.classList.add(
+            "playing"
+        );
 
-    const message = params.get("message");
+        musicStarted = true;
 
-    loadExperience(recipient, sender, message);
+    }
 
-    nextScreen("opening");
+    else {
+
+        backgroundMusic.pause();
+
+        musicButton.textContent =
+            "🔇";
+
+        musicButton.classList.remove(
+            "playing"
+        );
+    }
 }
 
 
-/* TYPEWRITER */
+/* =========================================
+   OPEN MESSAGE
+========================================= */
+
+function openMessage() {
+
+    startMusic();
+
+    startMessage();
+}
+
+
+/* =========================================
+   TYPEWRITER
+========================================= */
 
 let typingStarted = false;
 
+
 function startMessage() {
 
-    if(typingStarted) return;
+    if(typingStarted) {
+
+        return;
+
+    }
+
 
     typingStarted = true;
+
 
     nextScreen("messageScreen");
 
 
     const text =
-        "I know things may not feel right between us right now. " +
+
+        "Lalitha, I know things may not feel right between us right now. " +
+
         "I may have said something, done something, or failed to understand how you felt. " +
-        "And for that... I am truly sorry.";
+
+        "I never wanted to hurt you. " +
+
+        "And for everything that happened... I am truly sorry. 🥺";
 
 
     const target =
@@ -893,21 +1603,23 @@ function startMessage() {
 
         if(index < text.length) {
 
-            target.textContent += text[index];
+            target.textContent +=
+                text[index];
 
             index++;
 
-            setTimeout(type, 35);
-
+            setTimeout(
+                type,
+                35
+            );
         }
 
         else {
 
-            document.getElementById("messageNext")
+            document
+                .getElementById("messageNext")
                 .style.display = "block";
-
         }
-
     }
 
 
@@ -915,113 +1627,80 @@ function startMessage() {
 }
 
 
-/* HEART REPAIR */
+/* =========================================
+   OPEN SECOND CHANCE PAGE
+========================================= */
 
-let heal = 0;
+function openFinalPage() {
 
-function repairHeart() {
-
-    if(heal >= 100) return;
-
-    heal += 20;
-
-    document.getElementById("progress")
-        .style.width = heal + "%";
-
-    document.getElementById("progressText")
-        .textContent = heal + "% healed";
-
-
-    const heart =
-        document.getElementById("repairHeart");
-
-
-    heart.style.transform =
-        "scale(1.25)";
-
-
-    setTimeout(() => {
-
-        heart.style.transform =
-            "scale(1)";
-
-    }, 200);
-
-
-    if(heal >= 100) {
-
-        heart.textContent = "❤️";
-
-        document.getElementById("progressText")
-            .textContent = "100% healed ❤️";
-
-        document.getElementById("repairNext")
-            .style.display = "block";
-    }
-}
-
-
-/* MAYBE BUTTON */
-
-let maybeCount = 0;
-
-function maybeClick() {
-
-    maybeCount++;
-
-
-    const button =
-        document.getElementById("maybeButton");
-
-
-    const messages = [
-
-        "Are you sure? 🥺",
-
-        "Think once more 😭",
-
-        "The heart is waiting 💔",
-
-        "Okay... one tiny chance? 🥹",
-
-        "Please? ❤️"
-
-    ];
-
-
-    button.textContent =
-        messages[Math.min(
-            maybeCount - 1,
-            messages.length - 1
-        )];
-
-
-    if(maybeCount >= 5) {
-
-        button.textContent =
-            "Okay ❤️";
-
-        button.onclick = finish;
-    }
-}
-
-
-/* FINAL */
-
-function finish() {
-
-    nextScreen("finalScreen");
+    nextScreen("secondChanceScreen");
 
     createConfetti();
 }
 
 
-/* CONFETTI */
+/* =========================================
+   STILL THINKING
+========================================= */
+
+function stillThinking() {
+
+    const thinkingButton =
+        document.querySelector(".thinking-btn");
+
+
+    thinkingButton.textContent =
+        "Take your time ❤️";
+
+
+    thinkingButton.disabled = true;
+
+
+    setTimeout(() => {
+
+        openEndCard();
+
+    }, 1200);
+}
+
+
+/* =========================================
+   OPEN FINAL END CARD
+========================================= */
+
+function openEndCard() {
+
+    nextScreen("endCardScreen");
+
+    createConfetti();
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
 
 function createConfetti() {
 
-    const items =
-        ["❤️","💖","✨","🌸","💕","💗"];
+    const items = [
+
+        "❤️",
+
+        "💖",
+
+        "✨",
+
+        "🌸",
+
+        "💕",
+
+        "💗",
+
+        "🐱",
+
+        "🐶"
+
+    ];
 
 
     for(let i = 0; i < 45; i++) {
@@ -1029,37 +1708,54 @@ function createConfetti() {
         const confetti =
             document.createElement("div");
 
+
         confetti.className =
             "confetti";
 
+
         confetti.textContent =
+
             items[
+
                 Math.floor(
-                    Math.random() * items.length
+
+                    Math.random()
+
+                    * items.length
+
                 )
+
             ];
 
 
         confetti.style.left =
             Math.random() * 100 + "vw";
 
+
         confetti.style.animationDelay =
             Math.random() * 2 + "s";
+
 
         confetti.style.animationDuration =
             (2 + Math.random() * 3) + "s";
 
 
-        document.body.appendChild(confetti);
+        document.body.appendChild(
+            confetti
+        );
 
 
         setTimeout(() => {
+
             confetti.remove();
+
         }, 6000);
     }
 }
 
+
 </script>
 
 </body>
+
 </html>
