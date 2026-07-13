@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#12091f">
+
+<title>A Little Message 💌</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --pink: #ff5c8a;
+    --light-pink: #ff8eae;
+    --purple: #6f4cff;
+    --dark: #12091f;
+    --card: rgba(255,255,255,0.10);
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: "DM Sans", sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, #47215d 0, transparent 30%),
+        radial-gradient(circle at 80% 70%, #281f68 0, transparent 30%),
+        linear-gradient(145deg, #100718, #220c32, #10102d);
+    color: white;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: .25;
+    animation: orbMove 10s infinite alternate ease-in-out;
+}
+
+.orb1 {
+    width: 250px;
+    height: 250px;
+    background: #ff4f91;
+    top: -100px;
+    left: -100px;
+}
+
+.orb2 {
+    width: 300px;
+    height: 300px;
+    background: #674cff;
+    bottom: -150px;
+    right: -100px;
+    animation-delay: 2s;
+}
+
+@keyframes orbMove {
+    to {
+        transform: translate(70px, 80px) scale(1.2);
+    }
+}
+
+/* PARTICLES */
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: .4;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(110vh);
+    }
+
+    to {
+        transform: translateY(-20vh);
+    }
+}
+
+/* APP */
+
+.app {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-width: 480px;
+    margin: auto;
+}
+
+/* SCREEN */
+
+.screen {
+    position: absolute;
+    inset: 0;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(40px) scale(.96);
+    transition: .7s cubic-bezier(.22,.8,.25,1);
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) scale(1);
+}
+
+/* CARD */
+
+.card {
+    width: 100%;
+    padding: 30px 22px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.17);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 25px 70px rgba(0,0,0,.35);
+    text-align: center;
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    line-height: 1.15;
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+}
+
+.subtitle {
+    color: rgba(255,255,255,.68);
+    margin-top: 12px;
+    line-height: 1.6;
+}
+
+/* INPUT */
+
+.input-group {
+    text-align: left;
+    margin-top: 22px;
+}
+
+label {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+
+input,
+textarea {
+    width: 100%;
+    margin-top: 7px;
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.08);
+    border-radius: 15px;
+    outline: none;
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--pink);
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* BUTTON */
+
+button {
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.main-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 22px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, var(--pink), #ff3c70);
+    box-shadow: 0 12px 30px rgba(255,92,138,.35);
+    transition: .25s;
+}
+
+.main-btn:active {
+    transform: scale(.95);
+}
+
+/* ENVELOPE */
+
+.envelope-wrap {
+    margin: 35px auto;
+    width: 190px;
+    height: 135px;
+    position: relative;
+    cursor: pointer;
+    animation: envelopeFloat 2.5s infinite ease-in-out;
+}
+
+@keyframes envelopeFloat {
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.envelope {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #ff8bab, #ff537f);
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(255,80,130,.35);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 0,50% 60%,100% 0);
+    background: #ffb0c5;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 100%,50% 40%,100% 100%);
+    background: #ff7197;
+}
+
+.envelope-heart {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-25%);
+    font-size: 38px;
+}
+
+/* BEATING HEART */
+
+.big-heart {
+    font-size: 100px;
+    margin: 25px 0;
+    cursor: pointer;
+    animation: heartbeat 1.1s infinite;
+    filter: drop-shadow(0 10px 25px rgba(255,50,100,.5));
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    15% { transform: scale(1.16); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.12); }
+}
+
+/* TYPING */
+
+.typing {
+    min-height: 90px;
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+/* BROKEN HEART GAME */
+
+.broken-heart {
+    font-size: 100px;
+    margin: 25px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.progress-container {
+    height: 12px;
+    background: rgba(255,255,255,.1);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg,#ff8bad,#ff3e72);
+    border-radius: 30px;
+    transition: .4s;
+}
+
+.progress-text {
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+/* LETTER */
+
+.letter {
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 20px;
+    background: #fff7f2;
+    color: #4c3540;
+    text-align: left;
+    line-height: 1.8;
+    box-shadow: 0 20px 50px rgba(0,0,0,.2);
+    transform: rotate(-1deg);
+}
+
+/* CHOICE BUTTONS */
+
+.choices {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.choice {
+    flex: 1;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+.yes {
+    color: white;
+    background: linear-gradient(135deg,#ff5c8a,#ff3d70);
+}
+
+.maybe {
+    color: white;
+    background: rgba(255,255,255,.15);
+}
+
+/* FINAL */
+
+.final-heart {
+    font-size: 110px;
+    animation: heartbeat 1s infinite;
+}
+
+.confetti {
+    position: fixed;
+    font-size: 20px;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    from {
+        transform: translateY(-100px) rotate(0);
+    }
+
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: white;
+    color: #333;
+    padding: 13px 22px;
+    border-radius: 30px;
+    transition: .4s;
+    z-index: 100;
+    white-space: nowrap;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.small {
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+    margin-top: 15px;
+}
+
+@media(max-height: 700px) {
+    .card {
+        padding: 22px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .big-heart,
+    .broken-heart {
+        font-size: 75px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background" id="background"></div>
+
+<div class="app">
+
+    <!-- CREATOR SCREEN -->
+
+    <section class="screen active" id="creator">
+        <div class="card">
+
+            <div style="font-size:50px">💌</div>
+
+            <h1>Create a Little Message</h1>
+
+            <p class="subtitle">
+                Some things are difficult to say.
+                Maybe this will make it a little easier.
+            </p>
+
+            <div class="input-group">
+                <label>Who are you saying sorry to?</label>
+                <input id="recipient" placeholder="Their name">
+            </div>
+
+            <div class="input-group">
+                <label>Who is this message from?</label>
+                <input id="sender" placeholder="Your name">
+            </div>
+
+            <div class="input-group">
+                <label>Your personal message</label>
+
+                <textarea id="message"
+                placeholder="Write something from your heart..."></textarea>
+            </div>
+
+            <button class="main-btn" onclick="generateLink()">
+                Create My Message 💌
+            </button>
+
+            <p class="small">
+                Your message will be stored inside the shared link.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- OPENING -->
+
+    <section class="screen" id="opening">
+
+        <div class="card">
+
+            <p class="subtitle">A little message has arrived for</p>
+
+            <h1 id="openName"></h1>
+
+            <div class="envelope-wrap" onclick="nextScreen('heartScreen')">
+
+                <div class="envelope"></div>
+
+                <div class="envelope-heart">❤️</div>
+
+            </div>
+
+            <h2>Tap to open</h2>
+
+            <p class="subtitle">
+                Someone put their heart into this.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- HEART -->
+
+    <section class="screen" id="heartScreen">
+
+        <div class="card">
+
+            <p class="subtitle">Before you continue...</p>
+
+            <div class="big-heart" onclick="startMessage()">❤️</div>
+
+            <h2>Listen to my heart</h2>
+
+            <p class="subtitle">
+                Tap the heart.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+
+    <section class="screen" id="messageScreen">
+
+        <div class="card">
+
+            <div style="font-size:65px">🥺</div>
+
+            <h2>I need to tell you something...</h2>
+
+            <div class="typing" id="typingText"></div>
+
+            <button
+                id="messageNext"
+                class="main-btn"
+                style="display:none"
+                onclick="nextScreen('repairScreen')">
+
+                There's something else...
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- REPAIR HEART -->
+
+    <section class="screen" id="repairScreen">
+
+        <div class="card">
+
+            <h2>Can this heart be fixed?</h2>
+
+            <p class="subtitle">
+                Tap the heart a few times.
+            </p>
+
+            <div
+                class="broken-heart"
+                id="repairHeart"
+                onclick="repairHeart()">
+
+                💔
+
+            </div>
+
+            <div class="progress-container">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <div class="progress-text" id="progressText">
+                0% healed
+            </div>
+
+            <button
+                class="main-btn"
+                id="repairNext"
+                style="display:none"
+                onclick="nextScreen('letterScreen')">
+
+                Read my letter 💌
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- LETTER -->
+
+    <section class="screen" id="letterScreen">
+
+        <div class="card">
+
+            <h2>A letter for you</h2>
+
+            <div class="letter">
+
+                <strong>Dear <span id="letterRecipient"></span>,</strong>
+
+                <br><br>
+
+                <span id="personalMessage"></span>
+
+                <br><br>
+
+                I know a simple sorry cannot undo everything.
+
+                But I hope you know that this apology comes from my heart.
+
+                I value you more than my mistakes, more than my ego,
+                and more than the distance a misunderstanding can create.
+
+                <br><br>
+
+                <strong>
+                    — <span id="letterSender"></span> ❤️
+                </strong>
+
+            </div>
+
+            <button
+                class="main-btn"
+                onclick="nextScreen('questionScreen')">
+
+                One last thing...
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUESTION -->
+
+    <section class="screen" id="questionScreen">
+
+        <div class="card">
+
+            <div style="font-size:70px">🌷</div>
+
+            <h1>Can we leave this mistake behind?</h1>
+
+            <p class="subtitle">
+                Not forget it. Not pretend it never happened.
+                Just learn from it and move forward.
+            </p>
+
+            <div class="choices">
+
+                <button class="choice yes" onclick="finish()">
+                    Okay ❤️
+                </button>
+
+                <button
+                    class="choice maybe"
+                    id="maybeButton"
+                    onclick="maybeClick()">
+
+                    Still thinking 🤔
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="screen" id="finalScreen">
+
+        <div class="card">
+
+            <div class="final-heart">❤️</div>
+
+            <h1>Thank You</h1>
+
+            <p class="subtitle" id="finalText"></p>
+
+            <p
+                style="
+                margin-top:25px;
+                font-family:'Playfair Display',serif;
+                font-size:22px;
+                ">
+
+                Some people are worth saying sorry to.
+
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<div class="toast" id="toast">
+    Link copied! 💌
+</div>
+
+
+<script>
+
+/* PARTICLES */
+
+const background = document.getElementById("background");
+
+background.innerHTML +=
+'<div class="orb orb1"></div>' +
+'<div class="orb orb2"></div>';
+
+for(let i = 0; i < 35; i++) {
+
+    const particle = document.createElement("span");
+
+    particle.className = "particle";
+
+    particle.style.left = Math.random() * 100 + "%";
+
+    particle.style.animationDuration =
+        (5 + Math.random() * 8) + "s";
+
+    particle.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    particle.style.opacity =
+        Math.random() * .6;
+
+    background.appendChild(particle);
+}
+
+
+/* SCREEN NAVIGATION */
+
+function nextScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+}
+
+
+/* URL GENERATION */
+
+function generateLink() {
+
+    const recipient =
+        document.getElementById("recipient").value.trim();
+
+    const sender =
+        document.getElementById("sender").value.trim();
+
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    if(!recipient || !sender || !message) {
+
+        alert("Please fill all three fields 💌");
+
+        return;
+    }
+
+
+    const params = new URLSearchParams();
+
+    params.set("to", recipient);
+    params.set("from", sender);
+    params.set("message", message);
+
+
+    const url =
+        window.location.origin +
+        window.location.pathname +
+        "?" +
+        params.toString();
+
+
+    navigator.clipboard.writeText(url)
+        .then(() => {
+
+            const toast = document.getElementById("toast");
+
+            toast.classList.add("show");
+
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2500);
+
+        });
+
+
+    loadExperience(recipient, sender, message);
+
+    nextScreen("opening");
+}
+
+
+/* LOAD EXPERIENCE */
+
+function loadExperience(recipient, sender, message) {
+
+    document.getElementById("openName").textContent =
+        recipient;
+
+    document.getElementById("letterRecipient").textContent =
+        recipient;
+
+    document.getElementById("letterSender").textContent =
+        sender;
+
+    document.getElementById("personalMessage").textContent =
+        message;
+
+    document.getElementById("finalText").textContent =
+        recipient +
+        ", this little message was made especially for you by " +
+        sender +
+        ".";
+}
+
+
+/* LOAD URL */
+
+const params = new URLSearchParams(window.location.search);
+
+if(
+    params.has("to") &&
+    params.has("from") &&
+    params.has("message")
+) {
+
+    const recipient = params.get("to");
+
+    const sender = params.get("from");
+
+    const message = params.get("message");
+
+    loadExperience(recipient, sender, message);
+
+    nextScreen("opening");
+}
+
+
+/* TYPEWRITER */
+
+let typingStarted = false;
+
+function startMessage() {
+
+    if(typingStarted) return;
+
+    typingStarted = true;
+
+    nextScreen("messageScreen");
+
+
+    const text =
+        "I know things may not feel right between us right now. " +
+        "I may have said something, done something, or failed to understand how you felt. " +
+        "And for that... I am truly sorry.";
+
+
+    const target =
+        document.getElementById("typingText");
+
+
+    let index = 0;
+
+
+    function type() {
+
+        if(index < text.length) {
+
+            target.textContent += text[index];
+
+            index++;
+
+            setTimeout(type, 35);
+
+        }
+
+        else {
+
+            document.getElementById("messageNext")
+                .style.display = "block";
+
+        }
+
+    }
+
+
+    type();
+}
+
+
+/* HEART REPAIR */
+
+let heal = 0;
+
+function repairHeart() {
+
+    if(heal >= 100) return;
+
+    heal += 20;
+
+    document.getElementById("progress")
+        .style.width = heal + "%";
+
+    document.getElementById("progressText")
+        .textContent = heal + "% healed";
+
+
+    const heart =
+        document.getElementById("repairHeart");
+
+
+    heart.style.transform =
+        "scale(1.25)";
+
+
+    setTimeout(() => {
+
+        heart.style.transform =
+            "scale(1)";
+
+    }, 200);
+
+
+    if(heal >= 100) {
+
+        heart.textContent = "❤️";
+
+        document.getElementById("progressText")
+            .textContent = "100% healed ❤️";
+
+        document.getElementById("repairNext")
+            .style.display = "block";
+    }
+}
+
+
+/* MAYBE BUTTON */
+
+let maybeCount = 0;
+
+function maybeClick() {
+
+    maybeCount++;
+
+
+    const button =
+        document.getElementById("maybeButton");
+
+
+    const messages = [
+
+        "Are you sure? 🥺",
+
+        "Think once more 😭",
+
+        "The heart is waiting 💔",
+
+        "Okay... one tiny chance? 🥹",
+
+        "Please? ❤️"
+
+    ];
+
+
+    button.textContent =
+        messages[Math.min(
+            maybeCount - 1,
+            messages.length - 1
+        )];
+
+
+    if(maybeCount >= 5) {
+
+        button.textContent =
+            "Okay ❤️";
+
+        button.onclick = finish;
+    }
+}
+
+
+/* FINAL */
+
+function finish() {
+
+    nextScreen("finalScreen");
+
+    createConfetti();
+}
+
+
+/* CONFETTI */
+
+function createConfetti() {
+
+    const items =
+        ["❤️","💖","✨","🌸","💕","💗"];
+
+
+    for(let i = 0; i < 45; i++) {
+
+        const confetti =
+            document.createElement("div");
+
+        confetti.className =
+            "confetti";
+
+        confetti.textContent =
+            items[
+                Math.floor(
+                    Math.random() * items.length
+                )
+            ];
+
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        confetti.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+
+        document.body.appendChild(confetti);
+
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 6000);
+    }
+}
+
+</script>
+
+</body>
+</html>
